@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Rechner</title>
+</head>
+<body>
+    <script>
+        console.log("Script started"); 
+
+        let weight = parseFloat(prompt("Your weight in kilograms:"));
+        if (isNaN(weight) || weight <= 0) {
+            alert("Please enter a valid weight.");
+            throw new Error("Invalid weight entered.");
+        }
+
+        let height = parseFloat(prompt("Your height in meters:"));
+        if (isNaN(height) || height <= 0) {
+            alert("Please enter a valid height.");
+            throw new Error("Invalid height entered.");
+        }
+
+        let bmi = weight / (height * height);
+        bmi = bmi.toFixed(2);
+
+        alert("Your BMI is: " + bmi);
+
+        console.log("Your weight in kilograms: " + weight);
+        console.log("Your height in meters: " + height);
+        console.log("Your BMI: " + bmi);
+
+        if (bmi < 18.5) {
+            console.log("Underweight");
+            alert("You are underweight.");
+        } else if (bmi >= 18.5 && bmi < 25) {
+            console.log("Normal weight");
+            alert("You have a normal weight.");
+        } else if (bmi >= 25 && bmi < 30) {
+            console.log("Slightly overweight");
+            alert("You are slightly overweight.");
+        } else if (bmi >= 30 && bmi < 35) {
+            console.log("Obese");
+            alert("You are obese.");
+        } else {
+            console.log("Clinically obese");
+            alert("You are clinically obese.");
+        }
+    </script>
+</body>
+</html>
